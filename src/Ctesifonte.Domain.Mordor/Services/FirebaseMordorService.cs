@@ -12,7 +12,7 @@ using User = Ctesifonte.Domain.Mordor.Models.User;
 
 namespace Ctesifonte.Domain.Mordor.Services
 {
-    public class FirebaseMordorProvider : IFirebaseMordorProvider
+    public class FirebaseMordorService : IFirebaseMordorService
     {
         private readonly IConfiguration _IConfiguration;
         private readonly IUserRepository _IUserRepository;
@@ -20,7 +20,7 @@ namespace Ctesifonte.Domain.Mordor.Services
         private string ApiKey { get; }
         private readonly IFirebaseAuthProvider _IFirebaseAuthProvider;
 
-        public FirebaseMordorProvider(IConfiguration pConfiguration,
+        public FirebaseMordorService(IConfiguration pConfiguration,
             IUserRepository pIUserRepository)
         {
             _IConfiguration = pConfiguration;
@@ -46,27 +46,51 @@ namespace Ctesifonte.Domain.Mordor.Services
 
         public async Task<SignUpResult> SignUpAsync(User pUser)
         {
-            // var claims = new Dictionary<string, object>
-            // {
-            //     { "role", pUser.Role }
-            // };
-            // 
-            // UserRecord createdUser = await _FirebaseAuth.CreateUserAsync(new UserRecordArgs
-            // {
-            //     Email = pUser.Email,
-            //     EmailVerified = true,
-            //     Password = pUser.Password,
-            //     DisplayName = pUser.Username,
-            //     Disabled = false
-            // });
-            // await FirebaseAuth.DefaultInstance.SetCustomUserClaimsAsync(createdUser.Uid, claims);
-            // 
-            // var user = await FirebaseAuth.DefaultInstance.GetUserAsync(createdUser.Uid);
+            var claims = new Dictionary<string, object>
+            {
+                { "role", pUser.Role }
+            };
+
+            UserRecord createdUser = await _FirebaseAuth.CreateUserAsync(new UserRecordArgs
+            {
+                Email = pUser.Email,
+                EmailVerified = true,
+                Password = pUser.Password,
+                DisplayName = pUser.Username,
+                Disabled = false
+            });
+            await FirebaseAuth.DefaultInstance.SetCustomUserClaimsAsync(createdUser.Uid, claims);
+            
+            var user = await GetUserByUid(createdUser.Uid);
 
             _IUserRepository.Create(pUser);
 
-            return null;
-            // return new SignUpResult(user);
+            return new SignUpResult(user);
+        }
+
+        public async Task<TokenResult> VerifyTokenAsync(string pToken)
+        {
+            var decoded = await FirebaseAuth.DefaultInstance.VerifyIdTokenAsync(pToken);
+            var user = await GetUserByUid(decoded.Uid);
+            return new TokenResult(decoded, user);
+        }
+
+        public async Task<UserAuth> GetUserByUid(string pUid)
+        {
+            var user = await FirebaseAuth.DefaultInstance.GetUserAsync(pUid);
+
+            return new UserAuth(
+                user.Uid,
+                user.DisplayName,
+                user.Email,
+                user.PhoneNumber,
+                user.PhotoUrl,
+                user.ProviderId,
+                user.EmailVerified,
+                user.Disabled,
+                user.TokensValidAfterTimestamp,
+                user.CustomClaims,
+                user.TenantId);
         }
     }
 }

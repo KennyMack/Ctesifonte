@@ -1,6 +1,7 @@
 using Ctesifonte.Domain.Mordor.Interfaces.Repositories;
 using Ctesifonte.Domain.Mordor.Interfaces.Services;
 using Ctesifonte.Domain.Mordor.Services;
+using Ctesifonte.Infra.Cross.IoC;
 using Ctesifonte.Infra.Repositories.Mordor.Repositories;
 using FirebaseAdmin;
 using Google.Apis.Auth.OAuth2;
@@ -37,7 +38,8 @@ namespace Ctesifonte.Mordor
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            services.AddControllers();
+            services.AddControllers()
+               .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Ctesifonte.Mordor", Version = "v1" });
@@ -60,7 +62,8 @@ namespace Ctesifonte.Mordor
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
                     ValidIssuer = Configuration["Jwt:Firebase:ValidIssuer"],
-                    ValidAudience = Configuration["Jwt:Firebase:ValidAudience"]
+                    ValidAudience = Configuration["Jwt:Firebase:ValidAudience"],
+                    ClockSkew = TimeSpan.FromMinutes(1)
                 };
             });
 
@@ -72,8 +75,7 @@ namespace Ctesifonte.Mordor
                 .Build();
             });
 
-            services.AddScoped<IFirebaseMordorProvider, FirebaseMordorProvider>();
-            services.AddScoped<IUserRepository, UserRepository>();
+            services.RegisterServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -19,11 +19,11 @@ namespace Ctesifonte.Hermes.Controllers
     [ApiController]
     public class MordorController : ControllerBase
     {
-        private readonly IFirebaseMordorProvider _IFirebaseMordorProvider;
+        private readonly IFirebaseMordorService _IFirebaseMordorProvider;
         private readonly IConfiguration configuration;
 
         public MordorController(IConfiguration configuration,
-            IFirebaseMordorProvider pIFirebaseMordorProvider
+            IFirebaseMordorService pIFirebaseMordorProvider
             )
         {
             _IFirebaseMordorProvider = pIFirebaseMordorProvider;

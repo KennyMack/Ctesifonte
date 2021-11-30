@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace Ctesifonte.Domain.Mordor.Interfaces.Services
 {
-    public interface IFirebaseMordorProvider
+    public interface IFirebaseMordorService
     {
         Task<SignInResult> SignInWithEmailAsync(User pUser);
         Task<SignUpResult> SignUpAsync(User pUser);
+        Task<UserAuth> GetUserByUid(string pUid);
+        Task<TokenResult> VerifyTokenAsync(string pToken);
         
     }
 }

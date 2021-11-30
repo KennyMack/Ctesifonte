@@ -9,16 +9,16 @@ namespace Ctesifonte.Domain.Mordor.Models
 {
     public class SignUpResult
     {
-        public UserAuth UserFirebase { get; }
+        public UserAuth UserData { get; }
 
-        public SignUpResult()
+        public SignUpResult(UserAuth pUserAuth)
         {
-
+            UserData = pUserAuth;
         }
 
         public SignUpResult(UserRecord pUserRecord)
         {
-            UserFirebase = new UserAuth(
+            UserData = new UserAuth(
                 pUserRecord.Uid,
                 pUserRecord.DisplayName,
                 pUserRecord.Email,

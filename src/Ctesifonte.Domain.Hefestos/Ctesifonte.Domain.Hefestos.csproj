@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ctesifonte.Infra.Cross.Utils\Ctesifonte.Infra.Cross.Utils.csproj" />
+    <ProjectReference Include="..\Ctesifonte.Domain.Base\Ctesifonte.Domain.Base.csproj" />
   </ItemGroup>
 
 </Project>

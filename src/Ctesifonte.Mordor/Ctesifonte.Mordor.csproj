@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Ctesifonte.Domain.Mordor\Ctesifonte.Domain.Mordor.csproj" />
+    <ProjectReference Include="..\Ctesifonte.Infra.Cross.IoC\Ctesifonte.Infra.Cross.IoC.csproj" />
     <ProjectReference Include="..\Ctesifonte.Infra.Repositories.Mordor\Ctesifonte.Infra.Repositories.Mordor.csproj" />
   </ItemGroup>
 

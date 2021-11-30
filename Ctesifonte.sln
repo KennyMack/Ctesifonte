@@ -25,21 +25,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.2 - Workers", "2.2 - Work
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6 - Tests", "6 - Tests", "{7D408DAA-86E8-42EB-A5E7-C24D357E8B2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ctesifonte.Hefestos", "Ctesifonte.Hefestos\Ctesifonte.Hefestos.csproj", "{17E085E3-DED2-4DA0-85EB-DA960C9A20CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ctesifonte.Hefestos", "src\Ctesifonte.Hefestos\Ctesifonte.Hefestos.csproj", "{17E085E3-DED2-4DA0-85EB-DA960C9A20CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ctesifonte.Hermes", "Ctesifonte.Hermes\Ctesifonte.Hermes.csproj", "{470B31E7-9B2A-4D41-9DB8-07FBF9A339B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ctesifonte.Hermes", "src\Ctesifonte.Hermes\Ctesifonte.Hermes.csproj", "{470B31E7-9B2A-4D41-9DB8-07FBF9A339B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ctesifonte.Pta", "Ctesifonte.Pta\Ctesifonte.Pta.csproj", "{66C332D0-6667-4B2E-97CA-9A912FD00AFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ctesifonte.Pta", "src\Ctesifonte.Pta\Ctesifonte.Pta.csproj", "{66C332D0-6667-4B2E-97CA-9A912FD00AFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ctesifonte.Hades", "Ctesifonte.Hades\Ctesifonte.Hades.csproj", "{6FEE9AFA-56E7-418B-8E41-2EA096554183}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ctesifonte.Hades", "src\Ctesifonte.Hades\Ctesifonte.Hades.csproj", "{6FEE9AFA-56E7-418B-8E41-2EA096554183}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ctesifonte.Mordor", "Ctesifonte.Mordor\Ctesifonte.Mordor.csproj", "{2CBD8344-74A0-41B9-978B-036B9DB29B43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ctesifonte.Mordor", "src\Ctesifonte.Mordor\Ctesifonte.Mordor.csproj", "{2CBD8344-74A0-41B9-978B-036B9DB29B43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ctesifonte.Domain.Mordor", "Ctesifonte.Domain.Mordor\Ctesifonte.Domain.Mordor.csproj", "{45E2FB84-F98E-4028-9686-A32E4626313D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ctesifonte.Domain.Mordor", "src\Ctesifonte.Domain.Mordor\Ctesifonte.Domain.Mordor.csproj", "{45E2FB84-F98E-4028-9686-A32E4626313D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ctesifonte.Domain.Base", "Ctesifonte.Domain.Base\Ctesifonte.Domain.Base.csproj", "{17AE1BCA-D830-45A1-80F3-BCABC20AEFB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ctesifonte.Domain.Base", "src\Ctesifonte.Domain.Base\Ctesifonte.Domain.Base.csproj", "{17AE1BCA-D830-45A1-80F3-BCABC20AEFB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ctesifonte.Infra.Repositories.Mordor", "Ctesifonte.Infra.Repositories.Mordor\Ctesifonte.Infra.Repositories.Mordor.csproj", "{5A00BFC6-FE13-4F99-9221-C4DEB7822105}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ctesifonte.Infra.Repositories.Mordor", "src\Ctesifonte.Infra.Repositories.Mordor\Ctesifonte.Infra.Repositories.Mordor.csproj", "{5A00BFC6-FE13-4F99-9221-C4DEB7822105}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ctesifonte.Infra.Cross.IoC", "src\Ctesifonte.Infra.Cross.IoC\Ctesifonte.Infra.Cross.IoC.csproj", "{F5035691-84F1-46BE-A4DE-6FA1B75F0A93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ctesifonte.Infra.Repositories.Hefestos", "src\Ctesifonte.Infra.Repositories.Hefestos\Ctesifonte.Infra.Repositories.Hefestos.csproj", "{D0C56DCF-7B7C-4F1E-802E-BE8992E368D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ctesifonte.Domain.Hefestos", "src\Ctesifonte.Domain.Hefestos\Ctesifonte.Domain.Hefestos.csproj", "{9B2FF078-BD03-482F-A192-E478EB302B08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ctesifonte.Infra.Repositories.Base", "src\Ctesifonte.Infra.Repositories.Base\Ctesifonte.Infra.Repositories.Base.csproj", "{877F64D6-6DB1-4A73-92F1-6CE164AF07BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ctesifonte.Infra.Cross.Utils", "src\Ctesifonte.Infra.Cross.Utils\Ctesifonte.Infra.Cross.Utils.csproj", "{D744B413-B3AD-4C7D-AADC-31FBD1E4E392}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,6 +89,26 @@ Global
 		{5A00BFC6-FE13-4F99-9221-C4DEB7822105}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A00BFC6-FE13-4F99-9221-C4DEB7822105}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A00BFC6-FE13-4F99-9221-C4DEB7822105}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5035691-84F1-46BE-A4DE-6FA1B75F0A93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5035691-84F1-46BE-A4DE-6FA1B75F0A93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5035691-84F1-46BE-A4DE-6FA1B75F0A93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5035691-84F1-46BE-A4DE-6FA1B75F0A93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0C56DCF-7B7C-4F1E-802E-BE8992E368D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0C56DCF-7B7C-4F1E-802E-BE8992E368D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0C56DCF-7B7C-4F1E-802E-BE8992E368D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0C56DCF-7B7C-4F1E-802E-BE8992E368D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B2FF078-BD03-482F-A192-E478EB302B08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B2FF078-BD03-482F-A192-E478EB302B08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B2FF078-BD03-482F-A192-E478EB302B08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B2FF078-BD03-482F-A192-E478EB302B08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{877F64D6-6DB1-4A73-92F1-6CE164AF07BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{877F64D6-6DB1-4A73-92F1-6CE164AF07BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{877F64D6-6DB1-4A73-92F1-6CE164AF07BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{877F64D6-6DB1-4A73-92F1-6CE164AF07BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D744B413-B3AD-4C7D-AADC-31FBD1E4E392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D744B413-B3AD-4C7D-AADC-31FBD1E4E392}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D744B413-B3AD-4C7D-AADC-31FBD1E4E392}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D744B413-B3AD-4C7D-AADC-31FBD1E4E392}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,6 +126,11 @@ Global
 		{45E2FB84-F98E-4028-9686-A32E4626313D} = {297023E0-87F7-49A3-8EDD-32A2F874AB41}
 		{17AE1BCA-D830-45A1-80F3-BCABC20AEFB4} = {297023E0-87F7-49A3-8EDD-32A2F874AB41}
 		{5A00BFC6-FE13-4F99-9221-C4DEB7822105} = {8BD48D59-98FB-40C7-A02F-CE00FB35A10B}
+		{F5035691-84F1-46BE-A4DE-6FA1B75F0A93} = {50C9B1F1-8E10-4BE9-A7B2-AF062D023A4C}
+		{D0C56DCF-7B7C-4F1E-802E-BE8992E368D8} = {8BD48D59-98FB-40C7-A02F-CE00FB35A10B}
+		{9B2FF078-BD03-482F-A192-E478EB302B08} = {297023E0-87F7-49A3-8EDD-32A2F874AB41}
+		{877F64D6-6DB1-4A73-92F1-6CE164AF07BC} = {8BD48D59-98FB-40C7-A02F-CE00FB35A10B}
+		{D744B413-B3AD-4C7D-AADC-31FBD1E4E392} = {50C9B1F1-8E10-4BE9-A7B2-AF062D023A4C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8EE262E8-3328-413A-A912-B66F8C27100F}

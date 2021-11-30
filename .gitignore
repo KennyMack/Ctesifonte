@@ -355,3 +355,9 @@ MigrationBackup/
 src/Ctesifonte.Mordor/mordor-*.json
 
 src/Ctesifonte.Hermes/mordor-*.json
+
+src/Ctesifonte.Hades/mordor-sso-firebase-adminsdk-1c3ig-edbea356de.json
+
+src/Ctesifonte.Hefestos/mordor-sso-firebase-adminsdk-1c3ig-edbea356de.json
+
+src/Ctesifonte.Pta/mordor-sso-firebase-adminsdk-1c3ig-edbea356de.json

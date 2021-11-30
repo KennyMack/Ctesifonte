@@ -71,7 +71,7 @@ namespace Ctesifonte.Hermes
                 .Build();
             });
 
-            services.AddScoped<IFirebaseMordorProvider, FirebaseMordorProvider>();
+            services.AddScoped<IFirebaseMordorService, FirebaseMordorService>();
             //  new FirebaseAuthProvider(new FirebaseConfig("AIzaSyC1fJyLU2YZZkTze8RJNoDebbfGCcT-KT0")) 
         }
 

@@ -3,9 +3,11 @@ using Ctesifonte.Domain.Mordor.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Net.Http.Headers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Ctesifonte.Mordor.Controllers
@@ -14,9 +16,9 @@ namespace Ctesifonte.Mordor.Controllers
     [Route("api/[controller]")]
     public class MordorController : ControllerBase
     {
-        private readonly IFirebaseMordorProvider _IFirebaseMordorProvider;
+        private readonly IFirebaseMordorService _IFirebaseMordorProvider;
 
-        public MordorController(IFirebaseMordorProvider pIFirebaseMordorProvider)
+        public MordorController(IFirebaseMordorService pIFirebaseMordorProvider)
         {
             _IFirebaseMordorProvider = pIFirebaseMordorProvider;
         }
@@ -52,6 +54,18 @@ namespace Ctesifonte.Mordor.Controllers
 
                 return BadRequest($"{ex.Message}\r\n{ex.InnerException?.Message}");
             }
+        }
+
+        [HttpGet]
+        [Route("me")]
+        [Authorize]
+        public async Task<IActionResult> GetMe()
+        {
+            var TokenRequest = Request.Headers[HeaderNames.Authorization].ToString().Replace("Bearer", "").Trim();
+
+            var decoded = await _IFirebaseMordorProvider.VerifyTokenAsync(TokenRequest);
+
+            return Ok(decoded);
         }
     }
 }

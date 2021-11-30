@@ -1,3 +1,8 @@
+using Ctesifonte.Infra.Cross.IoC;
+using FirebaseAdmin;
+using Google.Apis.Auth.OAuth2;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -6,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
@@ -26,12 +32,45 @@ namespace Ctesifonte.Hefestos
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddControllers();
+            services.AddCors();
+            services.AddControllers()
+               .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Ctesifonte.Hefestos", Version = "v1" });
             });
+
+            FirebaseApp.Create(new AppOptions
+            {
+                Credential = GoogleCredential.FromFile(@"mordor-sso-firebase-adminsdk-1c3ig-edbea356de.json")
+            });
+
+            // firebase auth
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer("Firebase", opt =>
+            {
+                opt.Authority = Configuration["Jwt:Firebase:ValidIssuer"];
+                opt.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = Configuration["Jwt:Firebase:ValidIssuer"],
+                    ValidAudience = Configuration["Jwt:Firebase:ValidAudience"],
+                    ClockSkew = TimeSpan.FromMinutes(1)
+                };
+            });
+
+            services.AddAuthorization(opt =>
+            {
+                opt.DefaultPolicy = new AuthorizationPolicyBuilder()
+                .AddAuthenticationSchemes("Firebase")
+                .RequireAuthenticatedUser()
+                .Build();
+            });
+
+            services.RegisterServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +86,13 @@ namespace Ctesifonte.Hefestos
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
