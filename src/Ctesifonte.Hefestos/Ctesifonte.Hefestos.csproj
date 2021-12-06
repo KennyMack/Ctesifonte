@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="FirebaseAdmin" Version="2.2.0" />
     <PackageReference Include="Google.Apis.Auth" Version="1.55.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.12" />
@@ -15,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Ctesifonte.Application\Ctesifonte.Application.csproj" />
     <ProjectReference Include="..\Ctesifonte.Infra.Cross.IoC\Ctesifonte.Infra.Cross.IoC.csproj" />
   </ItemGroup>
 

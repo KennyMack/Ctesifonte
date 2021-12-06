@@ -8,19 +8,20 @@ using System.Threading.Tasks;
 
 namespace Ctesifonte.Domain.Hefestos.Models
 {
-    [Table("Customers", Schema = "Hefestos")]
     public class Customers: BaseEntity
     {
         public Customers(
             Guid Id, 
             string Name,
             string CNPJ,
-            string Email)
+            string Email,
+            bool Active)
         {
             this.Id = Id;
             this.Name = Name;
             this.CNPJ = CNPJ;
             this.Email = Email;
+            this.Active = Active;
         }
 
         public Customers()
@@ -28,8 +29,9 @@ namespace Ctesifonte.Domain.Hefestos.Models
 
         }
 
-        public string Name { get; set; }
-        public string CNPJ { get; set; }
+        public string Name { get; private set; }
+        public string CNPJ { get; private set; }
         public string Email { get; private set; }
+        public bool Active { get; private set; }
     }
 }

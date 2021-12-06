@@ -1,4 +1,5 @@
 ﻿using Ctesifonte.Domain.Base.Interfaces.Repositories;
+using Ctesifonte.Infra.Cross.Utils.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace Ctesifonte.Domain.Base.Interfaces.Services
 {
     public interface IBaseService<T> where T : class
     {
+        List<ModelException> Errors { get; set; }
         T Add(T model);
         IBaseRepository<T> DataRepository { get; }
         Task<T> GetByIdAsync(Guid id, params Expression<Func<T, object>>[] includeProperties);

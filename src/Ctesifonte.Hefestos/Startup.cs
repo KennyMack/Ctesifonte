@@ -1,3 +1,4 @@
+using Ctesifonte.Hefestos.Configurations;
 using Ctesifonte.Infra.Cross.IoC;
 using FirebaseAdmin;
 using Google.Apis.Auth.OAuth2;
@@ -69,6 +70,8 @@ namespace Ctesifonte.Hefestos
                 .RequireAuthenticatedUser()
                 .Build();
             });
+
+            services.AddAutoMapperConfiguration();
 
             services.RegisterServices();
         }

@@ -43,13 +43,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ctesifonte.Infra.Repositori
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ctesifonte.Infra.Cross.IoC", "src\Ctesifonte.Infra.Cross.IoC\Ctesifonte.Infra.Cross.IoC.csproj", "{F5035691-84F1-46BE-A4DE-6FA1B75F0A93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ctesifonte.Infra.Repositories.Hefestos", "src\Ctesifonte.Infra.Repositories.Hefestos\Ctesifonte.Infra.Repositories.Hefestos.csproj", "{D0C56DCF-7B7C-4F1E-802E-BE8992E368D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ctesifonte.Infra.Repositories.Hefestos", "src\Ctesifonte.Infra.Repositories.Hefestos\Ctesifonte.Infra.Repositories.Hefestos.csproj", "{D0C56DCF-7B7C-4F1E-802E-BE8992E368D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ctesifonte.Domain.Hefestos", "src\Ctesifonte.Domain.Hefestos\Ctesifonte.Domain.Hefestos.csproj", "{9B2FF078-BD03-482F-A192-E478EB302B08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ctesifonte.Domain.Hefestos", "src\Ctesifonte.Domain.Hefestos\Ctesifonte.Domain.Hefestos.csproj", "{9B2FF078-BD03-482F-A192-E478EB302B08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ctesifonte.Infra.Repositories.Base", "src\Ctesifonte.Infra.Repositories.Base\Ctesifonte.Infra.Repositories.Base.csproj", "{877F64D6-6DB1-4A73-92F1-6CE164AF07BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ctesifonte.Infra.Repositories.Base", "src\Ctesifonte.Infra.Repositories.Base\Ctesifonte.Infra.Repositories.Base.csproj", "{877F64D6-6DB1-4A73-92F1-6CE164AF07BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ctesifonte.Infra.Cross.Utils", "src\Ctesifonte.Infra.Cross.Utils\Ctesifonte.Infra.Cross.Utils.csproj", "{D744B413-B3AD-4C7D-AADC-31FBD1E4E392}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ctesifonte.Infra.Cross.Utils", "src\Ctesifonte.Infra.Cross.Utils\Ctesifonte.Infra.Cross.Utils.csproj", "{D744B413-B3AD-4C7D-AADC-31FBD1E4E392}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{E4AB5907-4DB8-4C0B-8852-7F42AF44F759}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ctesifonte.Application", "src\Ctesifonte.Application\Ctesifonte.Application.csproj", "{A9E81ECE-D88F-4F0B-A604-9F14C86315D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ctesifonte.Infra.Cross.Resources", "src\Ctesifonte.Infra.Cross.Resources\Ctesifonte.Infra.Cross.Resources.csproj", "{E83AC87C-8053-4663-B86C-5C847AD64782}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -109,6 +115,18 @@ Global
 		{D744B413-B3AD-4C7D-AADC-31FBD1E4E392}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D744B413-B3AD-4C7D-AADC-31FBD1E4E392}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D744B413-B3AD-4C7D-AADC-31FBD1E4E392}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4AB5907-4DB8-4C0B-8852-7F42AF44F759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4AB5907-4DB8-4C0B-8852-7F42AF44F759}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4AB5907-4DB8-4C0B-8852-7F42AF44F759}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4AB5907-4DB8-4C0B-8852-7F42AF44F759}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9E81ECE-D88F-4F0B-A604-9F14C86315D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9E81ECE-D88F-4F0B-A604-9F14C86315D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9E81ECE-D88F-4F0B-A604-9F14C86315D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9E81ECE-D88F-4F0B-A604-9F14C86315D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E83AC87C-8053-4663-B86C-5C847AD64782}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E83AC87C-8053-4663-B86C-5C847AD64782}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E83AC87C-8053-4663-B86C-5C847AD64782}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E83AC87C-8053-4663-B86C-5C847AD64782}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -131,6 +149,8 @@ Global
 		{9B2FF078-BD03-482F-A192-E478EB302B08} = {297023E0-87F7-49A3-8EDD-32A2F874AB41}
 		{877F64D6-6DB1-4A73-92F1-6CE164AF07BC} = {8BD48D59-98FB-40C7-A02F-CE00FB35A10B}
 		{D744B413-B3AD-4C7D-AADC-31FBD1E4E392} = {50C9B1F1-8E10-4BE9-A7B2-AF062D023A4C}
+		{A9E81ECE-D88F-4F0B-A604-9F14C86315D9} = {7FB9E9AD-5625-4841-BD07-EB08083E5E3A}
+		{E83AC87C-8053-4663-B86C-5C847AD64782} = {50C9B1F1-8E10-4BE9-A7B2-AF062D023A4C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8EE262E8-3328-413A-A912-B66F8C27100F}

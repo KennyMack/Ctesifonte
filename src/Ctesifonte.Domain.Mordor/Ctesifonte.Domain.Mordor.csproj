@@ -10,4 +10,8 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Ctesifonte.Domain.Base\Ctesifonte.Domain.Base.csproj" />
+  </ItemGroup>
+
 </Project>

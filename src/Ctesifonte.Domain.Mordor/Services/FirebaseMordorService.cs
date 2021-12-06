@@ -1,6 +1,7 @@
 ﻿using Ctesifonte.Domain.Mordor.Interfaces.Repositories;
 using Ctesifonte.Domain.Mordor.Interfaces.Services;
 using Ctesifonte.Domain.Mordor.Models;
+using Ctesifonte.Infra.Cross.Utils.Exceptions;
 using Firebase.Auth;
 using FirebaseAdmin.Auth;
 using Microsoft.Extensions.Configuration;
@@ -37,7 +38,13 @@ namespace Ctesifonte.Domain.Mordor.Services
                             .SignInWithEmailAndPasswordAsync(pUser.Email, pUser.Password);
 
             if (fbAuthLink.FirebaseToken == null)
-                throw new Exception("Login inválido");
+                throw new RaException("Login inválido", new ModelException()
+                {
+                    ErrorCode = (int)EExceptionErrorCodes.InvalidRequest,
+                    Field = "Email",
+                    Messages =  new[] { "Login inválido" },
+                    Value = pUser.Email
+                });
 
             var user = await FirebaseAuth.DefaultInstance.GetUserAsync(fbAuthLink.User.LocalId);
 
@@ -63,7 +70,14 @@ namespace Ctesifonte.Domain.Mordor.Services
             
             var user = await GetUserByUid(createdUser.Uid);
 
-            _IUserRepository.Create(pUser);
+            _IUserRepository.Create(new User(
+                Guid.NewGuid(),
+                createdUser.Uid, 
+                pUser.Username, 
+                pUser.Email, 
+                pUser.Password, 
+                pUser.Role, 
+                true));
 
             return new SignUpResult(user);
         }

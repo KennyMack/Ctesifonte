@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Ctesifonte.Application\Ctesifonte.Application.csproj" />
     <ProjectReference Include="..\Ctesifonte.Domain.Mordor\Ctesifonte.Domain.Mordor.csproj" />
     <ProjectReference Include="..\Ctesifonte.Infra.Repositories.Hefestos\Ctesifonte.Infra.Repositories.Hefestos.csproj" />
     <ProjectReference Include="..\Ctesifonte.Infra.Repositories.Mordor\Ctesifonte.Infra.Repositories.Mordor.csproj" />

@@ -1,4 +1,6 @@
-﻿using Ctesifonte.Domain.Mordor.Interfaces.Services;
+﻿using Ctesifonte.Application.Interfaces.Services.Mordor;
+using Ctesifonte.Application.ViewModel.Mordor;
+using Ctesifonte.Domain.Mordor.Interfaces.Services;
 using Ctesifonte.Domain.Mordor.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -16,20 +18,23 @@ namespace Ctesifonte.Mordor.Controllers
     [Route("api/[controller]")]
     public class MordorController : ControllerBase
     {
+        private readonly IAuthenticationAS _IAuthenticationAS;
         private readonly IFirebaseMordorService _IFirebaseMordorProvider;
 
-        public MordorController(IFirebaseMordorService pIFirebaseMordorProvider)
+        public MordorController(IFirebaseMordorService pIFirebaseMordorProvider,
+            IAuthenticationAS pIAuthenticationAS)
         {
+            _IAuthenticationAS = pIAuthenticationAS;
             _IFirebaseMordorProvider = pIFirebaseMordorProvider;
         }
 
         [HttpPost]
         [Route("sign-in")]
-        public async Task<IActionResult> PostSignInUser(User userModel)
+        public async Task<IActionResult> PostSignInUser(SignInUserVM userModel)
         {
             try
             {
-                var result = await _IFirebaseMordorProvider.SignInWithEmailAsync(userModel);
+                var result = await _IAuthenticationAS.SignInWithEmailAsync(userModel);
 
                 return Ok(result);
             }

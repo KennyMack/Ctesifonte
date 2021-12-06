@@ -7,8 +7,8 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["Ctesifonte.Mordor/Ctesifonte.Mordor.csproj", "Ctesifonte.Mordor/"]
-RUN dotnet restore "Ctesifonte.Mordor/Ctesifonte.Mordor.csproj"
+COPY ["src/Ctesifonte.Mordor/Ctesifonte.Mordor.csproj", "src/Ctesifonte.Mordor/"]
+RUN dotnet restore "src/Ctesifonte.Mordor/Ctesifonte.Mordor.csproj"
 COPY . .
 WORKDIR "/src/Ctesifonte.Mordor"
 RUN dotnet build "Ctesifonte.Mordor.csproj" -c Release -o /app/build

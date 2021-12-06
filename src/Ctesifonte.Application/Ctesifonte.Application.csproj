@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ctesifonte.Domain.Hefestos\Ctesifonte.Domain.Hefestos.csproj" />
+    <ProjectReference Include="..\Ctesifonte.Domain.Mordor\Ctesifonte.Domain.Mordor.csproj" />
+    <ProjectReference Include="..\Ctesifonte.Infra.Cross.Utils\Ctesifonte.Infra.Cross.Utils.csproj" />
+  </ItemGroup>
+
+</Project>

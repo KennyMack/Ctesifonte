@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.12" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
@@ -14,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Ctesifonte.Application\Ctesifonte.Application.csproj" />
     <ProjectReference Include="..\Ctesifonte.Domain.Mordor\Ctesifonte.Domain.Mordor.csproj" />
     <ProjectReference Include="..\Ctesifonte.Infra.Cross.IoC\Ctesifonte.Infra.Cross.IoC.csproj" />
     <ProjectReference Include="..\Ctesifonte.Infra.Repositories.Mordor\Ctesifonte.Infra.Repositories.Mordor.csproj" />

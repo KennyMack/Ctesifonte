@@ -1,0 +1,46 @@
+version: '3.4'
+
+services:
+  ctesifonte.sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    networks:
+      - ctesifonte-net
+
+  ctesifonte.mordor:
+    image: ${DOCKER_REGISTRY-}ctesifontemordor
+    depends_on:
+      - ctesifonte.sqlserver
+    build:
+      context: .
+      dockerfile: src/Ctesifonte.Mordor/Dockerfile
+    networks:
+      - ctesifonte-net
+
+  ctesifonte.hefestos:
+    image: ${DOCKER_REGISTRY-}ctesifontehefestos
+    depends_on:
+      - ctesifonte.sqlserver
+      - ctesifonte.mordor
+    build:
+      context: .
+      dockerfile: src/Ctesifonte.Hefestos/Dockerfile
+    networks:
+      - ctesifonte-net
+
+  ctesifonte.hades:
+    image: ${DOCKER_REGISTRY-}ctesifontehades
+    depends_on:
+      - ctesifonte.sqlserver
+      - ctesifonte.mordor
+    build:
+      context: .
+      dockerfile: src/Ctesifonte.Hades/Dockerfile
+    networks:
+      - ctesifonte-net
+
+networks:
+  ctesifonte-net:
+    driver: bridge
+
+volumes:
+  mssql_data:

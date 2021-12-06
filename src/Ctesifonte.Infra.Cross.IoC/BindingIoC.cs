@@ -1,4 +1,8 @@
-﻿using Ctesifonte.Domain.Hefestos.Interfaces.Repositories;
+﻿using Ctesifonte.Application.Interfaces.Services.Hefestos;
+using Ctesifonte.Application.Interfaces.Services.Mordor;
+using Ctesifonte.Application.Services.Hefestos;
+using Ctesifonte.Application.Services.Mordor;
+using Ctesifonte.Domain.Hefestos.Interfaces.Repositories;
 using Ctesifonte.Domain.Hefestos.Interfaces.Services;
 using Ctesifonte.Domain.Hefestos.Services;
 using Ctesifonte.Domain.Mordor.Interfaces.Repositories;
@@ -25,8 +29,11 @@ namespace Ctesifonte.Infra.Cross.IoC
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<ICustomerService, CustomerService>();
 
-            services.AddScoped<MordorDbContext>();
-            services.AddScoped<HefestosDbContext>();
+            services.AddScoped<IAuthenticationAS, AuthenticationAS>();
+            services.AddScoped<ICustomersAS, CustomersAS>();
+
+            services.AddDbContext<MordorDbContext>();
+            services.AddDbContext<HefestosDbContext>();
         }
 
     }

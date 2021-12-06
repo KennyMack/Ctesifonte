@@ -1,4 +1,5 @@
 ﻿using Ctesifonte.Domain.Hefestos.Models;
+using Ctesifonte.Infra.Repositories.Hefestos.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -13,6 +14,12 @@ namespace Ctesifonte.Infra.Repositories.Hefestos.Context
     {
         public virtual DbSet<Customers> Customers { get; set; }
         private string ConnectionString { get; }
+
+        public HefestosDbContext()
+        {
+            ConnectionString = Environment.GetEnvironmentVariable("CONNHEFESTOS");
+        }
+
         public HefestosDbContext(IConfiguration configuration) : base()
         {
             ConnectionString = configuration.GetConnectionString("Hefestos");
@@ -25,7 +32,7 @@ namespace Ctesifonte.Infra.Repositories.Hefestos.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // modelBuilder.
+            modelBuilder.ApplyConfiguration(new CustomersConfiguration("CUSTOMERS", "HEFESTOS"));
         }
     }
 }

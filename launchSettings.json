@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "serviceActions": {
+        "ctesifonte.hades": "StartDebugging",
+        "ctesifonte.hefestos": "StartDebugging",
+        "ctesifonte.mordor": "StartDebugging",
+        "ctesifonte.sqlserver": "StartWithoutDebugging"
+      },
+      "commandVersion": "1.0"
+    }
+  }
+}

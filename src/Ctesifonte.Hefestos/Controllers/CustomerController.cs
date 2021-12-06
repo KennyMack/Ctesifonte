@@ -1,4 +1,7 @@
-﻿using Ctesifonte.Domain.Hefestos.Interfaces.Services;
+﻿using Ctesifonte.Application.Interfaces.Services.Hefestos;
+using Ctesifonte.Application.ViewModel.Hefestos;
+using Ctesifonte.Domain.Hefestos.Interfaces.Services;
+using Ctesifonte.Domain.Hefestos.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,17 +16,33 @@ namespace Ctesifonte.Hefestos.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        private readonly ICustomerService _ICustomerService;
-        public CustomerController(ICustomerService pICustomerService)
+        private readonly ICustomersAS _ICustomersAS;
+        public CustomerController(
+            ICustomersAS pICustomersAS)
         {
-            _ICustomerService = pICustomerService;
+            _ICustomersAS = pICustomersAS;
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Post([FromBody]CreateCustomerVM Customer)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            await _ICustomersAS.CreateAsync(Customer);
+
+            if (_ICustomersAS.Errors.Any())
+                return BadRequest(ModelState);
+
+            return Ok(Customer);
         }
 
         [HttpGet]
         [Authorize]
         public async Task<IActionResult> GetAll()
         {
-            return Ok(await _ICustomerService.GetAllAsync());
+            return Ok(await _ICustomersAS.GetAllAsync());
         }
     }
 }

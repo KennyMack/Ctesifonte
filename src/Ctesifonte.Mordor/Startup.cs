@@ -3,6 +3,7 @@ using Ctesifonte.Domain.Mordor.Interfaces.Services;
 using Ctesifonte.Domain.Mordor.Services;
 using Ctesifonte.Infra.Cross.IoC;
 using Ctesifonte.Infra.Repositories.Mordor.Repositories;
+using Ctesifonte.Mordor.Configurations;
 using FirebaseAdmin;
 using Google.Apis.Auth.OAuth2;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -74,6 +75,8 @@ namespace Ctesifonte.Mordor
                 .RequireAuthenticatedUser()
                 .Build();
             });
+
+            services.AddAutoMapperConfiguration();
 
             services.RegisterServices();
         }

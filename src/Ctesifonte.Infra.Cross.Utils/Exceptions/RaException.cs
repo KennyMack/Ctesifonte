@@ -9,6 +9,8 @@ namespace Ctesifonte.Infra.Cross.Utils.Exceptions
 {
     public class RaException : ApplicationException
     {
+        public ModelException ExceptionDetails { get; set; } = null;
+
         #region Constructor
 
         /// <summary>
@@ -44,6 +46,11 @@ namespace Ctesifonte.Infra.Cross.Utils.Exceptions
         public RaException(string message, Exception innerException)
             : base(message, innerException)
         {
+        }
+
+        public RaException(string message, ModelException exceptionDetails) : base(message)
+        {
+            ExceptionDetails = exceptionDetails;
         }
 
         /// <summary>
